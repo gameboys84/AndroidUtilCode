@@ -24,3 +24,10 @@ dependencies {
     testImplementation dep.robolectric
     testImplementation dep.support.appcompat_v7
 }
+
+android.libraryVariants.all { variant ->
+    variant.outputs.all {
+        def fileName = "utilcode-" + rootProject.versionName + ".aar"
+        outputFileName = fileName
+    }
+}
