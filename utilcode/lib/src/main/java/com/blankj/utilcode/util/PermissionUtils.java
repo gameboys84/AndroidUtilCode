@@ -181,11 +181,16 @@ public final class PermissionUtils {
     /**
      * Launch the application's details settings.
      */
-    public static void launchAppDetailsSettings() {
+    public static void launchAppDefaultSettings() {
         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         intent.setData(Uri.parse("package:" + Utils.getApp().getPackageName()));
         if (!isIntentAvailable(intent)) return;
         Utils.getApp().startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+    }
+
+    public static void launchAppDetailsSettings() {
+        if (!ManufacturerUtils.launchAppDetailsSettings())
+            launchAppDefaultSettings();
     }
 
     /**
