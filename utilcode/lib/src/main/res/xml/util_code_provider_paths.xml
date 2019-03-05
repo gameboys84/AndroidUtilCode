@@ -16,6 +16,10 @@
         name="external_path"
         path="." />
 
+    <external-path
+        name="cache_files"
+        path="qp.game.cache" />
+
     <external-files-path
         name="external_files_path"
         path="." />

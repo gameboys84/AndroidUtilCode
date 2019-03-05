@@ -37,7 +37,7 @@ public final class UriUtils {
      */
     public static Uri file2Uri(@NonNull final File file) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            String authority = Utils.getApp().getPackageName() + ".utilcode.provider";
+            String authority = Utils.getApp().getPackageName() + ".utilcode.provider"; //"com.blankj.utilcode.provider";//
             return FileProvider.getUriForFile(Utils.getApp(), authority, file);
         } else {
             return Uri.fromFile(file);

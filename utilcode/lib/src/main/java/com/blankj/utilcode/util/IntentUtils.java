@@ -100,7 +100,7 @@ public final class IntentUtils {
             data = Uri.fromFile(file);
         } else {
             intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            String authority = Utils.getApp().getPackageName() + ".utilcode.provider";
+            String authority = Utils.getApp().getPackageName() + ".utilcode.provider"; //"com.blankj.utilcode.provider";//
             data = FileProvider.getUriForFile(Utils.getApp(), authority, file);
         }
         intent.setDataAndType(data, type);
@@ -586,7 +586,7 @@ public final class IntentUtils {
     private static Uri file2Uri(final File file) {
         if (file == null) return null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            String authority = Utils.getApp().getPackageName() + ".utilcode.provider";
+            String authority = Utils.getApp().getPackageName() + ".utilcode.provider"; //"com.blankj.utilcode.provider";//
             return FileProvider.getUriForFile(Utils.getApp(), authority, file);
         } else {
             return Uri.fromFile(file);

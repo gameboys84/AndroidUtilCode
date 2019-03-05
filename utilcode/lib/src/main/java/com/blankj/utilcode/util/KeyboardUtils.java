@@ -266,7 +266,10 @@ public final class KeyboardUtils {
         InputMethodManager imm =
                 (InputMethodManager) Utils.getApp().getSystemService(Context.INPUT_METHOD_SERVICE);
         if (imm == null) return;
-        String[] leakViews = new String[]{"mLastSrvView", "mCurRootView", "mServedView", "mNextServedView"};
+
+        //modified 2019-2-20 14:9:17， java.lang.NoSuchFieldException: No field mLastSrvView in class Landroid/view/inputmethod/InputMethodManager
+        //去掉 "mLastSrvView",
+        String[] leakViews = new String[]{"mCurRootView", "mServedView", "mNextServedView"};
         for (String leakView : leakViews) {
             try {
                 Field declaredField = InputMethodManager.class.getDeclaredField(leakView);

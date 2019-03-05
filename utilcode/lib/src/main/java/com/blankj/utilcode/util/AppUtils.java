@@ -970,7 +970,7 @@ public final class AppUtils {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             data = Uri.fromFile(file);
         } else {
-            String authority = Utils.getApp().getPackageName() + ".utilcode.provider";
+            String authority = Utils.getApp().getPackageName() + ".utilcode.provider"; //"com.blankj.utilcode.provider";//
             data = FileProvider.getUriForFile(Utils.getApp(), authority, file);
             intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         }
